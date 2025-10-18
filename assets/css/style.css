@@ -1,43 +1,82 @@
+/* Résumé (FR):
+   - Correction de fautes de frappe/syntaxe: transparent, #wrapper, accolades manquantes, double point-virgule.
+   - Harmonisation avec le HTML: #wrapper au lieu de #wrappr, .inside correctement formée.
+   - Séparateurs " : " générés via ::after (suppression des doubles deux-points).
+   - Légers ajustements responsive et accessibilité visuelle.
+*/
+
 html, body{
-margin:0;
-padding: 0;
-font-family: "Aldrich";
-font-size: 12px;
-height:100%;
-color: #F0F1D5;
-background-color: transpent;
+  margin:0;
+  padding: 0;
+  font-family: "Aldrich", system-ui, sans-serif;
+  font-size: 12px;
+  height:100%;
+  color: #000000;
+  background-color: transparent; /* correction: transpent -> transparent */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-#wrappr{
-display:flex;
-justify-content:center;
-align-items:center;
-height: 100%;
+
+#wrapper{ /* correction: #wrappr -> #wrapper pour correspondre à l'HTML */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height: 100%;
 }
-.inside
-font-weight: bold;
-font-size: 75px;;
+
+/* correction du bloc .inside: accolade ouvrante manquante et ; en double */
+.inside {
+  font-weight: bold;
+  font-size: 75px;
 }
+
+.timer {
+  display: inline-flex;
+  gap: 0.25em;
+  line-height: 1;
+}
+
+/* on laisse le CSS gérer les deux-points, l'HTML n'en affiche plus pour éviter le doublon */
 .timer span::after{
-content: " : ";
+  content: " : ";
 }
 .timer span:last-child::after{
-content: "";
+  content: "";
 }
+
 .controls{
-text-align: center;
+  text-align: center;
+  margin-top: 16px;
 }
 .controls button {
-box-sizing: border-box;
-height: 74px;
-background-color: transparent;
-border-color: transparent transparent transparent #F0F1D5;
-transition: 100ms all ease;
-will-change: border-width;
-cursor: pointer;
-border-style: solid;
-border-width: 37px 0 37px 60px;
+  box-sizing: border-box;
+  height: 74px;
+  background-color: transparent;
+  border-color: transparent transparent transparent #F0F1D5;
+  transition: 100ms all ease;
+  will-change: border-width;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 37px 0 37px 60px; /* triangle play */
+  padding: 0;
+  outline: none;
 }
+/* état pause: double bordure pour simuler le symbole pause */
 .controls button.pause{
-border-style: double;
-border-width: 0px 0 0px 60px;
+  border-style: double;
+  border-width: 0px 0 0px 60px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .inside {
+    font-size: 72px;
+  }
+  .controls button {
+    height: 54px;
+    border-width: 27px 0 27px 44px;
+  }
+  .controls button.pause {
+    border-width: 0 0 0 44px;
+  }
 }
