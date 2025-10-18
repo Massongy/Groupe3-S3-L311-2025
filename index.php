@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--Plusieurs erreurs de syntaxe donc le navigateur ne sait pas comment interpréter la structure html car incoherente -->
-<html lang="fr"> <!-- structure html invalide
-    <head>// correction balise incorrecte + lien css et google fonts+ posiitionnemt balise script-->
+<html lang="fr"> <!-- structure html invalidez correction balise incorrecte + lien css et google fonts+ posiitionnemt balise script-->
+    <head> 
         
         <meta charset="utf-8">
         <title>Timer</title> 
@@ -12,8 +12,8 @@
         <div id="wrapper">
             <div class="inside" id="timer-container">
                 <div class="timer">
-                    <span id="hours">00</span>:
-                    <span id="minutes">00</span>:
+                    <span id="hours">00</span>
+                    <span id="minutes">00</span>
                     <span id="seconds">00</span>
                 </div>
                 <div class="controls">

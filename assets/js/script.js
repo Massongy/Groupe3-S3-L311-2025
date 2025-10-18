@@ -45,8 +45,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
         document.querySelector("#minutes").innerHTML = adjustTimer(minutes);
         document.querySelector("#seconds").innerHTML = adjustTimer(seconds);
 
-        /* Passer les valeurs (Heures, Minutes, seconds) à la fonction de couleur
-                document.querySelector('body').style.background = randomHexColor(hours, minutes, seconds); */
+        /* Passer les valeurs (Heures, Minutes, seconds) à la fonction de couleur*/
+                        document.querySelector('body').style.background = randomHexColor(document.querySelector('#hours').innerHTML, document.querySelector('#minutes').innerHTML, document.querySelector('#seconds').innerHTML);
+
+
       }
     }, 1000); //je corrige ici la parenthèse manquante
   }
